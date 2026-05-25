@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class BallGame : MonoBehaviour
@@ -11,14 +10,26 @@ public class BallGame : MonoBehaviour
 
     public float ballStartHeight = 6.0f;
     public bool isGameOver = false;
-    public Camera mainCamera;
+    //public Camera mainCamera;         카메라는 BallThrow에서 처리할 예정
 
     public float ballTimer;
+
+    public Transform startPosition;
+    
+    public BallThrow ballThrow;
+
+    public Vector2 throwInput;
+    public float throwPower;
+
+    private void Awake()
+    {
+        ballThrow = GetComponent<BallThrow>(); // 어차피 같은 Empty 에 할당해줄 예정
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mainCamera = Camera.main;
+        //mainCamera = Camera.main;
         SpawnNewBall();
         ballTimer = -3.0f;
     }
@@ -39,7 +50,7 @@ public class BallGame : MonoBehaviour
             SpawnNewBall();
             ballTimer = -3.0f;
         }
-
+/*
         if (currentBall != null)
         {
 
@@ -69,6 +80,7 @@ public class BallGame : MonoBehaviour
         { 
             DropBall();
         }
+*/
     }
     
     
@@ -83,11 +95,13 @@ public class BallGame : MonoBehaviour
         if (!isGameOver)
         {
             currentBallType = UnityEngine.Random.Range(0, 3);
-
+            /*
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);       // 마우스 2D 위치를 월드 3D 좌표로 변환
-
-            Vector3 spawnPosition = new Vector3(worldPosition.x, ballStartHeight, 0);
+            */
+            // 기존 스폰 위치 코드
+            //Vector3 spawnPosition = new Vector3(worldPosition.x, ballStartHeight, 0);
+            Vector3 spawnPosition = startPosition.position;
 
             float halfFruitSize = ballSizes[currentBallType] / 2f;
 
@@ -105,13 +119,17 @@ public class BallGame : MonoBehaviour
         }
     }
 
+    
+
     void DropBall()
     {
-        Debug.Log("공 드랍");
+        Debug.Log("공 던져");
         Rigidbody2D rb = currentBall.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.gravityScale = 1f;
+
+            rb.AddForce(throwInput * throwPower, ForceMode2D.Impulse);
             currentBall = null;
             ballTimer = 1.0f;
         }

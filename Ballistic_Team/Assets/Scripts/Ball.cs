@@ -30,7 +30,5 @@ public class Ball : MonoBehaviour
             Destroy(otherBall.gameObject);
             Destroy(gameObject);
         }
-
-
     }
 }
