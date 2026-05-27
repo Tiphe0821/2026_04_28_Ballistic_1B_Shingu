@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3138976647371473112}
   - component: {fileID: 3120672370728730372}
   - component: {fileID: 7018607107140079886}
-  - component: {fileID: -8877205795074227563}
-  - component: {fileID: -5338317124690230296}
+  - component: {fileID: 580461056234879893}
+  - component: {fileID: -7372826565095814052}
   m_Layer: 0
-  m_Name: Basketball
+  m_Name: Billiardball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6bcd10e23507936449335ef0580de08d, type: 3}
+  m_Sprite: {fileID: -4844047421623253864, guid: ab9a273b72e153046b813885cdf5178a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8cb923bd7e848afc67d9699b0a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ball
-  ballType: 10
+  ballType: 2
   hasMerged: 0
---- !u!50 &-8877205795074227563
+--- !u!50 &580461056234879893
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-5338317124690230296
+--- !u!58 &-7372826565095814052
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
