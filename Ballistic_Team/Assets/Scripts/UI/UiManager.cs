@@ -21,6 +21,7 @@ public class UiManager : MonoBehaviour
             startButton.Select();
         }
     }
+
     public void GameButton()
     {
         Invoke("LoadSceneDelayed", sceneDelay);
