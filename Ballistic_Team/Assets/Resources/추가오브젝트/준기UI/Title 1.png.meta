@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 24289c6c2938f834187ae04e95230cd4
+guid: b1c739fb509e7984c8e60d1f40d6e550
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7352339073622421304
-    second: Title_0
+      213: -25533031545326202
+    second: Title 1_0
   - first:
-      213: 578584420991164872
-    second: Title_1
+      213: 6329484883723273100
+    second: Title 1_1
   - first:
-      213: -2586058674264470982
-    second: Title_2
+      213: -3512355711310458293
+    second: Title 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Title_0
+      name: Title 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c0d280219e37f990800000000000000
-      internalID: -7352339073622421304
+      spriteID: 685b3b4d7d945aff0800000000000000
+      internalID: -25533031545326202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_1
+      name: Title 1_1
       rect:
         serializedVersion: 2
         x: 85
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c1e0c5277b870800800000000000000
-      internalID: 578584420991164872
+      spriteID: c83c78977f8d6d750800000000000000
+      internalID: 6329484883723273100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Title_2
+      name: Title 1_2
       rect:
         serializedVersion: 2
         x: 114
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3a062856597c1cd0800000000000000
-      internalID: -2586058674264470982
+      spriteID: b42968ef61b914fc0800000000000000
+      internalID: -3512355711310458293
       vertices: []
       indices: 
       edges: []
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Title_0: -7352339073622421304
-      Title_1: 578584420991164872
-      Title_2: -2586058674264470982
+      Title 1_0: -25533031545326202
+      Title 1_1: 6329484883723273100
+      Title 1_2: -3512355711310458293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
