@@ -1,4 +1,7 @@
+
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
 
 public class BallThrow : MonoBehaviour
 {
@@ -9,6 +12,12 @@ public class BallThrow : MonoBehaviour
     private float maxminDistance = 2f;
     public Camera mainCamera;
 
+    public Vector2 mousePos;
+
+    public Transform HandPos;
+
+    private Vector2 playerDir;
+
     public bool isGrab = false;
 
     void Start()
@@ -18,11 +27,34 @@ public class BallThrow : MonoBehaviour
 
     void Update()
     {
+        // 볼 게임에서 코드 옮겨오기
+        Vector3 mousePosition = Input.mousePosition;        // 마우스 포지션
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);   // 월드 포지션으로 변환
+
+        playerDir = new Vector2(worldPosition.x - this.transform.position.x, worldPosition.y - this.transform.position.y);
+        // 던지는 손이 플레이어의 마우스 포지션을 보도록 만들기
+        float lookAngle = Mathf.Acos((playerDir.normalized.x * playerDir.normalized.x) / (Mathf.Abs(playerDir.normalized.magnitude) * Mathf.Abs(playerDir.normalized.x)));
+        bool isLookUp = false;
+
+        if (playerDir.y > 0)
+            isLookUp = true;
+        if (playerDir.x > 0)
+            HandPos.localScale = new Vector3(1, 1, 1);
+        else
+            HandPos.localScale = new Vector3(-1, 1, 1);
+
+
+        if (playerDir.x > 0)
+        {
+            HandPos.rotation = Quaternion.Euler(0f, 0f, ((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
+        }
+        else
+        {
+            HandPos.rotation = Quaternion.Euler(0f, 0f, -((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
+        }
+
         if(isGrab &&  currentBall != null )
         {
-            // 볼 게임에서 코드 옮겨오기
-            Vector3 mousePosition = Input.mousePosition;        // 마우스 포지션
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);   // 월드 포지션으로 변환
 
             Vector3 newPosition = currentBall.transform.position;
             newPosition.x = worldPosition.x;
@@ -38,8 +70,22 @@ public class BallThrow : MonoBehaviour
 
             currentBall.transform.position = newPosition;
         }
-    }
 
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if(!isGrab)
+            {
+                BallGrab();
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            if(isGrab)
+            {
+                BallRelease();
+            }
+        }
+    }
     private void DrawThrowLine()
     {
         
@@ -52,6 +98,6 @@ public class BallThrow : MonoBehaviour
 
     private void BallRelease()      // 공 던지기
     {
-
+        isGrab = false;
     }
 }
