@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Ball_01
-  - Ball_02
   - Audio
+  - Ball
   layers:
   - Default
   - TransparentFX

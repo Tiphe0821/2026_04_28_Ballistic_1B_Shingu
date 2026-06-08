@@ -23,7 +23,7 @@ public class BallGame : MonoBehaviour
 
     private void Awake()
     {
-        ballThrow = GetComponent<BallThrow>(); // 어차피 같은 Empty 에 할당해줄 예정
+        ballThrow = FindAnyObjectByType<BallThrow>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,12 +75,13 @@ public class BallGame : MonoBehaviour
 
             currentBall.transform.position = newPosition;
         }
+*/
 
-        if(Input.GetMouseButtonDown(0) && ballTimer == -3.0f)
+        if(Input.GetMouseButtonUp(0) && ballTimer == -3.0f)
         { 
             DropBall();
         }
-*/
+
     }
     
     
@@ -116,10 +117,19 @@ public class BallGame : MonoBehaviour
             {
                 rb.gravityScale = 0f;
             }
+
+            ballThrow.currentBall = currentBall;
         }
     }
 
-    
+    public void MergeBalls(int ballType, Vector3 position)
+    {
+        if(ballType < ballPrefabs.Length-1)
+        {
+            GameObject newBall = Instantiate(ballPrefabs[ballType+1], position, Quaternion.identity);
+            newBall.transform.localScale = new Vector3(ballSizes[ballType + 1], ballSizes[ballType + 1], 1.0f);
+        }
+    }
 
     void DropBall()
     {

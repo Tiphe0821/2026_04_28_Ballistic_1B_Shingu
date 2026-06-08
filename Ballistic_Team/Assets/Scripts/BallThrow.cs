@@ -7,18 +7,22 @@ public class BallThrow : MonoBehaviour
 {
     public GameObject currentBall;
 
-    public Rigidbody2D currentRb;
     public Transform startPosition;
-    private float maxminDistance = 2f;
+    private float maxminDistance = 0.5f;
     public Camera mainCamera;
 
-    public Vector2 mousePos;
-
     public Transform HandPos;
+
+    public float throwForce;
 
     private Vector2 playerDir;
 
     public bool isGrab = false;
+
+    // 마우스 클릭 시 해당 위치 저장하는 변수
+    public Vector2 startHoldPosition;
+    private Vector2 throwVector;            // 던지는 방향 벡터 (
+
 
     void Start()
     {
@@ -55,7 +59,11 @@ public class BallThrow : MonoBehaviour
 
         if(isGrab &&  currentBall != null )
         {
+            // 현재 마우스 포지션 가져와서 처음 클릭한 위치랑 차이 계산하기
+            throwVector = new Vector2(worldPosition.x - startHoldPosition.x, worldPosition.y - startHoldPosition.y);
+            
 
+            /*
             Vector3 newPosition = currentBall.transform.position;
             newPosition.x = worldPosition.x;
             newPosition.y = worldPosition.y;
@@ -69,6 +77,7 @@ public class BallThrow : MonoBehaviour
             newPosition.y = Mathf.Clamp(newPosition.y, startPosition.position.y - maxminDistance, startPosition.position.y + maxminDistance);
 
             currentBall.transform.position = newPosition;
+            */
         }
 
         if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -78,13 +87,14 @@ public class BallThrow : MonoBehaviour
                 BallGrab();
             }
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetMouseButtonUp(0))
         {
             if(isGrab)
             {
                 BallRelease();
             }
         }
+
     }
     private void DrawThrowLine()
     {
@@ -94,10 +104,20 @@ public class BallThrow : MonoBehaviour
     private void BallGrab()         // 공 잡기
     {
         isGrab = true;
+        Vector3 mousePosition = Input.mousePosition;        // 마우스 포지션
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);   // 월드 포지션으로 변환
+
+        startHoldPosition = new Vector2(worldPosition.x, worldPosition.y);
+        // 이걸 기준으로 마우스 위치를 입력받아서 던질 예정
+
     }
 
     private void BallRelease()      // 공 던지기
     {
         isGrab = false;
+
+        float howStrong = Mathf.Clamp(throwVector.magnitude, 0.1f, 1) * throwForce;
+
+        currentBall.GetComponent<Rigidbody2D>().AddForce(-playerDir * throwForce, ForceMode2D.Impulse);
     }
 }

@@ -23,7 +23,11 @@ public class Ball : MonoBehaviour
             Vector3 mergePosition = (transform.position + otherBall.transform.position) / 2f;      // 두 과일의 중간 위치 계산
 
             // 게임 매니저에서 Merge 구현 된 것을 호출 (미구현)
-
+            BallGame gameManager = FindAnyObjectByType<BallGame>();
+            if (gameManager != null)
+            {
+                gameManager.MergeBalls(ballType, mergePosition);
+            }
 
             // 과일들 제거
 
