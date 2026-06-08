@@ -21,6 +21,9 @@ public class BallGame : MonoBehaviour
     public Vector2 throwInput;
     public float throwPower;
 
+    public GameObject gameOverPannel;
+
+
     private void Awake()
     {
         ballThrow = FindAnyObjectByType<BallThrow>();

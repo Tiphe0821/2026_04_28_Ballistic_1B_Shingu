@@ -41,6 +41,6 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("플레이어 이름 저장 됨: " + playerName);
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
