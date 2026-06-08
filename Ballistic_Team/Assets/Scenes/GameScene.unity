@@ -964,7 +964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1372497748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   ballThrow: {fileID: 0}
   throwInput: {x: 0, y: 0}
   throwPower: 0
+  gameOverPannel: {fileID: 0}
 --- !u!4 &1859983289
 Transform:
   m_ObjectHideFlags: 0
