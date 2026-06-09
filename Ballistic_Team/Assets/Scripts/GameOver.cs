@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class GameOver : MonoBehaviour
         {
             Debug.Log("게임오버!");
             FindAnyObjectByType<BallGame>().isGameOver = true;
+            Invoke("BackToLobby", 3f);
         }
+    }
+
+    private void BackToLobby()
+    {
+        SceneManager.LoadScene("UIScene");
     }
 }
