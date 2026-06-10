@@ -10,6 +10,8 @@ public class BallThrow : MonoBehaviour
     public Camera mainCamera;
 
     public Transform HandPos;
+    public GameObject PowerBar;
+
 
     public float throwForce;
 
@@ -49,18 +51,20 @@ public class BallThrow : MonoBehaviour
         if (playerDir.x > 0)
         {
             HandPos.rotation = Quaternion.Euler(0f, 0f, ((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
+            //PowerBar.transform.rotation = Quaternion.Euler(0f, 0f, ((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
         }
         else
         {
             HandPos.rotation = Quaternion.Euler(0f, 0f, -((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
+            //PowerBar.transform.rotation = Quaternion.Euler(0f, 0f, -((isLookUp) ? 1.0f : -1.0f) * Mathf.Rad2Deg * lookAngle);
         }
 
         if(isGrab &&  currentBall != null )
         {
             // 현재 마우스 포지션 가져와서 처음 클릭한 위치랑 차이 계산하기
             throwVector = new Vector2(worldPosition.x - startHoldPosition.x, worldPosition.y - startHoldPosition.y);
-            
 
+            //PowerBar.transform.localScale = new Vector3(Mathf.Clamp(throwVector.magnitude, 0.1f, 1) * 2, 1f, 1f);
             /*
             Vector3 newPosition = currentBall.transform.position;
             newPosition.x = worldPosition.x;
@@ -83,6 +87,7 @@ public class BallThrow : MonoBehaviour
             if(!isGrab)
             {
                 BallGrab();
+                PowerBar.SetActive(true);
             }
         }
         if(Input.GetMouseButtonUp(0))
@@ -90,6 +95,7 @@ public class BallThrow : MonoBehaviour
             if(isGrab)
             {
                 BallRelease();
+                PowerBar.SetActive(false);
             }
         }
 
