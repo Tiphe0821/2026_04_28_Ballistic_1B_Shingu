@@ -1572,7 +1572,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1032396805}
   HandPos: {fileID: 451652335}
   PowerBar: {fileID: 1303659968}
-  throwForce: 5
+  throwForce: 5.7
   isGrab: 0
   startHoldPosition: {x: 0, y: 0}
 --- !u!4 &2143070791
