@@ -2936,6 +2936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Volleyball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: df41d42ae0050d140a741ec5fda3d48d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2992,6 +2996,10 @@ PrefabInstance:
     - target: {fileID: 4907501564567198024, guid: 38940b7e63b8614459f6ec121851e329, type: 3}
       propertyPath: m_Name
       value: Handball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 38940b7e63b8614459f6ec121851e329, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3050,6 +3058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Billiardball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 54fe1bf219dc49d498fae13b128dea2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3106,6 +3118,10 @@ PrefabInstance:
     - target: {fileID: 4907501564567198024, guid: fd351730f229f0e4a8413e6f2dcaa590, type: 3}
       propertyPath: m_Name
       value: Beach_Volleyball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: fd351730f229f0e4a8413e6f2dcaa590, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3164,6 +3180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baseball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 6b6770cc3a502694fbf009212112a0db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3220,6 +3240,10 @@ PrefabInstance:
     - target: {fileID: 4907501564567198024, guid: ff163e43e0955df438e0ec1d6a03b278, type: 3}
       propertyPath: m_Name
       value: Pickleball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: ff163e43e0955df438e0ec1d6a03b278, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3278,6 +3302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tennisball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 09aae795498e235479afdef772715dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3334,6 +3362,10 @@ PrefabInstance:
     - target: {fileID: 4907501564567198024, guid: f524b14b4cf769c45a1b47d5055b2b7b, type: 3}
       propertyPath: m_Name
       value: Basketball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: f524b14b4cf769c45a1b47d5055b2b7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3392,6 +3424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soccerball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 5dd598af280609741a2b8c5d274b2284, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3449,6 +3485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golfball
       objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 1f66dc95b788eda4ab383e3047643135, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3505,6 +3545,10 @@ PrefabInstance:
     - target: {fileID: 4907501564567198024, guid: 6219cfa8a85ad7345adcd3493112441b, type: 3}
       propertyPath: m_Name
       value: Pinggongball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907501564567198024, guid: 6219cfa8a85ad7345adcd3493112441b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
