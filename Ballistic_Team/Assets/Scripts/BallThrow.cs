@@ -4,6 +4,7 @@ using UnityEngine;
 public class BallThrow : MonoBehaviour
 {
     public GameObject currentBall;
+    public BallGame myGame;
 
     public Transform startPosition;
     private float maxminDistance = 0.5f;
@@ -11,6 +12,7 @@ public class BallThrow : MonoBehaviour
 
     public Transform HandPos;
     public GameObject PowerBar;
+    public SpriteRenderer barSprite;
 
 
     public float throwForce;
@@ -27,6 +29,7 @@ public class BallThrow : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        myGame = FindAnyObjectByType<BallGame>();   
     }
 
     void Update()
@@ -65,6 +68,14 @@ public class BallThrow : MonoBehaviour
             throwVector = new Vector2(worldPosition.x - startHoldPosition.x, worldPosition.y - startHoldPosition.y);
 
             PowerBar.transform.localScale = new Vector3(Mathf.Clamp(throwVector.magnitude, 0.1f, 1) * 2, 1f, 1f);
+            if (throwVector.magnitude < 0.5f)
+            {
+                barSprite.color = Color.black;
+            }
+            else
+            {
+                barSprite.color = Color.white;
+            }
             /*
             Vector3 newPosition = currentBall.transform.position;
             newPosition.x = worldPosition.x;
@@ -92,10 +103,16 @@ public class BallThrow : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0))
         {
-            if(isGrab)
+            PowerBar.SetActive(false);
+
+            if(isGrab && throwVector.magnitude > 0.5f)      // 던지는 힘이 0.5(절반)보다 강할 경우에만 던지도록 만들기
             {
+                myGame.DropBall();
                 BallRelease();
-                PowerBar.SetActive(false);
+            }
+            else if(isGrab)
+            {
+                isGrab = false;
             }
         }
 
@@ -120,8 +137,8 @@ public class BallThrow : MonoBehaviour
     {
         isGrab = false;
 
-        float howStrong = Mathf.Clamp(throwVector.magnitude, 0.1f, 1) * throwForce;
+        float howStrong = Mathf.Clamp(throwVector.magnitude, 0.1f, 1.0f) * throwForce;
 
-        currentBall.GetComponent<Rigidbody2D>().AddForce(-playerDir * throwForce, ForceMode2D.Impulse);
+        currentBall.GetComponent<Rigidbody2D>().AddForce(-playerDir.normalized * howStrong, ForceMode2D.Impulse);
     }
 }

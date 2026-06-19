@@ -80,11 +80,6 @@ public class BallGame : MonoBehaviour
         }
 */
 
-        if(Input.GetMouseButtonUp(0) && ballTimer == -3.0f)
-        { 
-            DropBall();
-        }
-
     }
     
     
@@ -134,7 +129,7 @@ public class BallGame : MonoBehaviour
         }
     }
 
-    void DropBall()
+    public void DropBall()
     {
         Debug.Log("°ø ´øÁ®");
         Rigidbody2D rb = currentBall.GetComponent<Rigidbody2D>();
