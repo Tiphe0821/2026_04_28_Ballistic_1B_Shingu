@@ -2925,6 +2925,9 @@ MonoBehaviour:
   - 1.5
   - 1.7
   - 1.9
+  - 2.1
+  - 2.3
+  - 2.5
   currentBall: {fileID: 0}
   currentBallType: 0
   ballStartHeight: 6
