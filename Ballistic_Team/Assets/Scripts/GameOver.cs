@@ -13,12 +13,17 @@ public class GameOver : MonoBehaviour
             Debug.Log("게임오버!");
             FindAnyObjectByType<BallGame>().isGameOver = true;
 
-
+            GameOverPannel.SetActive(true);
         }
     }
 
-    private void BackToLobby()
+    public void BackToLobby()
     {
         SceneManager.LoadScene("UIScene");
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
