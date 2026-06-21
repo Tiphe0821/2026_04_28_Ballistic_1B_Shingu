@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-
-
+using UnityEngine.EventSystems;
 public class BallThrow : MonoBehaviour
 {
     public GameObject currentBall;
@@ -51,6 +50,11 @@ public class BallThrow : MonoBehaviour
 
     void Update()
     {
+        //-----------------------------------------------------------------
+        if (PanelManager.isPaused) return; // 일시정지
+        if (EventSystem.current.IsPointerOverGameObject()) return; // ui 클릭 방지
+        //-----------------------------------------------------------------
+
         // 볼 게임에서 코드 옮겨오기
         Vector3 mousePosition = Input.mousePosition;        // 마우스 포지션
         Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);   // 월드 포지션으로 변환
