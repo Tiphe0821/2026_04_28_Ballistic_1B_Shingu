@@ -127,6 +127,7 @@ public class BallGame : MonoBehaviour
             GameObject newBall = Instantiate(ballPrefabs[ballType+1], position, Quaternion.identity);
             newBall.transform.localScale = new Vector3(ballSizes[ballType + 1], ballSizes[ballType + 1], 1.0f);
 
+            FindAnyObjectByType<AudioManager>().PlaySFX(FindAnyObjectByType<AudioManager>().BallMerge); // audio
             ScoreManager.instance.AddScoreByBallType(ballType + 1); // 합쳐질 때 +점수
         }
     }
@@ -140,6 +141,7 @@ public class BallGame : MonoBehaviour
             rb.gravityScale = 1f;
             rb.AddForce(throwInput * throwPower, ForceMode2D.Impulse);
 
+            FindAnyObjectByType<AudioManager>().PlaySFX(FindAnyObjectByType<AudioManager>().BallShoot); // audio
             ScoreManager.instance.AddScoreByBallType(currentBallType); // 던질 때 +점수
 
             currentBall = null;

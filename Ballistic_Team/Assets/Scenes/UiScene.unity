@@ -1299,6 +1299,8 @@ MonoBehaviour:
   SFXSource: {fileID: 1318763568}
   backGround: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
   Click: {fileID: 8300000, guid: aebae0e89d575dc43ae340319487ef87, type: 3}
+  BallMerge: {fileID: 8300000, guid: e85e86cb07bb0ad4abefbb7197ee1df5, type: 3}
+  BallShoot: {fileID: 8300000, guid: 5a63e049d508ffa4aac1e7704949997e, type: 3}
 --- !u!1 &630553527
 GameObject:
   m_ObjectHideFlags: 0

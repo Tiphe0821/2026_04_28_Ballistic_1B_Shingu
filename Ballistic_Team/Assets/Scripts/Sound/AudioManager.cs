@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     [Header("---------- Audio Clip ----------")]
     public AudioClip backGround;
     public AudioClip Click;
+    public AudioClip BallMerge;
+    public AudioClip BallShoot;
 
     private void Awake()
     {
