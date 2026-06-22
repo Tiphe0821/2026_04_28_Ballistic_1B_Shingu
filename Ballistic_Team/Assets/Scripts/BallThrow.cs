@@ -113,10 +113,10 @@ public class BallThrow : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (!isGrab)
+            // 손에 공이 쥐어져 있을 때만 마우스 드래그 시작이 가능하도록 수정
+            if (!isGrab && currentBall != null)
             {
                 BallGrab();
-                
             }
         }
         if (Input.GetMouseButtonUp(0))
@@ -158,6 +158,9 @@ public class BallThrow : MonoBehaviour
         float howStrong = Mathf.Clamp(throwVector.magnitude, 0.1f, 1.0f) * throwForce;
 
         currentBall.GetComponent<Rigidbody2D>().AddForce(-playerDir.normalized * howStrong, ForceMode2D.Impulse);
+
+        // 공을 던졌으므로 현재 쥐고 있는 공 변수를 비워줌
+        currentBall = null;
     }
 
     private void DrawTrajectory()
