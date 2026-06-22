@@ -30,11 +30,16 @@ public class ScoreManager : MonoBehaviour
         }
 
         score += scoreTable[ballType];
+        Debug.Log("현재 점수 : " + score);
         UpdateScoreText();
     }
-
+    public int GetScore()
+    {
+        return score;
+    }
     private void UpdateScoreText()
     {
         scoreText.text = "Score : " + score;
     }
+  
 }
